@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- *  login smwap
+ * login smwap
+ *
  * @author yang.zhou
  * @date 2017/12/20
  */
@@ -39,12 +40,12 @@ public class LoginWapPage extends BasePage {
     private WebElement freeOpening;
 
 
-    public LoginWapPage(WebDriver driver){
+    public LoginWapPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void loginWap(String idNo, String password){
+    public void loginWap(String idNo, String password) {
         open();
         TestUtils.sleep1s();
         loginId = wait.until(ExpectedConditions.visibilityOf(loginId));
@@ -56,7 +57,7 @@ public class LoginWapPage extends BasePage {
     }
 
 
-    public void loginWap(String idNo){
+    public void loginWap(String idNo) {
         loginWap(idNo, "qq1111");
     }
 

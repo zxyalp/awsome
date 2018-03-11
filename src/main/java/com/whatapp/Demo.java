@@ -25,8 +25,8 @@ public class Demo {
         builder.setPort(1508);
         builder.setPort(1500);
         List<NameValuePair> name = new ArrayList<>();
-        name.add(new BasicNameValuePair("name","zhouyanng"));
-        name.add(new BasicNameValuePair("age","18"));
+        name.add(new BasicNameValuePair("name", "zhouyanng"));
+        name.add(new BasicNameValuePair("age", "18"));
         builder.setParameters(name);
         builder.addParameters(name);
         builder.setPath("/bajns/eushu9/eeyiu");

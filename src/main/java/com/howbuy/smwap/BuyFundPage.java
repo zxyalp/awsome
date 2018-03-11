@@ -10,21 +10,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * 购买下单
+ *
  * @author yang.zhou
  * @date 2017/12/20
  */
-public class BuyFundPage extends BasePage{
+public class BuyFundPage extends BasePage {
 
     private final Logger logger = LoggerFactory.getLogger(BuyFundPage.class);
 
 
-    public BuyFundPage(WebDriver driver){
+    public BuyFundPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
 
-    public void buy(String fundCode, String amount, int index, PaymentType paymentType){
+    public void buy(String fundCode, String amount, int index, PaymentType paymentType) {
 
         SearchFundPage searchFundPage = PageFactory.initElements(driver, SearchFundPage.class);
         searchFundPage.searchFund(fundCode);
@@ -36,44 +37,44 @@ public class BuyFundPage extends BasePage{
 
 
     /**
-     *  使用银行卡代扣
+     * 使用银行卡代扣
      */
-    public void buy(String fundCode, String amount, int index){
+    public void buy(String fundCode, String amount, int index) {
         buy(fundCode, amount, index, PaymentType.BANK_CARD_PAY);
     }
 
     /**
      * 默认使用第一张银行卡
      */
-    public void buy(String fundCode, String amount){
+    public void buy(String fundCode, String amount) {
         buy(fundCode, amount, 1);
     }
 
     /**
-     *  银行转账支付
+     * 银行转账支付
      */
-    public void buyBankLinePay(String fundCode, String amount, int index){
+    public void buyBankLinePay(String fundCode, String amount, int index) {
         buy(fundCode, amount, index, PaymentType.BANK_LINE_PAY);
     }
 
     /**
      * 银行转账支付，默认使用第一张银行卡
      */
-    public void buyBankLinePay(String fundCode, String amount){
+    public void buyBankLinePay(String fundCode, String amount) {
         buy(fundCode, amount, 1);
     }
 
     /**
      * 使用储蓄罐支付
      */
-    public void buyPiggyPay(String fundCode, String amount, int index){
+    public void buyPiggyPay(String fundCode, String amount, int index) {
         buy(fundCode, amount, index, PaymentType.CXG_PAY);
     }
 
     /**
      * 默认使用储蓄罐第一张卡支付
      */
-    public void buyPiggyPay(String fundCode, String amount){
+    public void buyPiggyPay(String fundCode, String amount) {
         buy(fundCode, amount, 1);
     }
 

@@ -16,6 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 
 /**
  * 在线交易-赎回页面
+ *
  * @author yang.zhou
  * @date 2017/10/19
  */
@@ -41,31 +42,31 @@ public class HighEndSellPage extends BasePage {
     @FindBy(css = "tbody > tr")
     private List<WebElement> sellList;
 
-    public HighEndSellPage(WebDriver driver){
+    public HighEndSellPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver,timeOutInSeconds);
+        this.wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public Boolean isRedeemabe(WebElement fund){
+    public Boolean isRedeemabe(WebElement fund) {
         WebElement redeemLink = fund.findElement(By.linkText("赎回"));
         String aKey = "href";
         String aValue = "sellindex.html";
-        if (redeemLink.getAttribute(aKey).contains(aValue)){
+        if (redeemLink.getAttribute(aKey).contains(aValue)) {
             return true;
         }
         return false;
     }
 
 
-    public void sell(String fundName){
+    public void sell(String fundName) {
         diglog();
     }
 
-    public void diglog(){
+    public void diglog() {
         try {
             wait.until(invisibilityOf(dialog));
-        }catch (TimeoutException t){
-            logger.info("元素加载超时.",t);
+        } catch (TimeoutException t) {
+            logger.info("元素加载超时.", t);
         }
     }
 

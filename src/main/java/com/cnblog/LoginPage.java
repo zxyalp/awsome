@@ -7,7 +7,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Wait;
 
 
-/**登录页，输入用户名和密码。
+/**
+ * 登录页，输入用户名和密码。
  * Created by summe on 2017/5/29.
  */
 public class LoginPage {
@@ -23,11 +24,11 @@ public class LoginPage {
     @FindBy(how = How.ID, using = "signin")
     WebElement singinBtn;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void loginBlog(String userName, String passWord){
+    public void loginBlog(String userName, String passWord) {
         TestUtils.sleep3s(1000);
         usernameText.clear();
         usernameText.sendKeys(userName);

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class RegisterUserTest extends BaseTestCase {
 
     @Test
-    public void  registerUserTest01() throws Exception{
+    public void registerUserTest01() throws Exception {
         RegisterUserPage userPage = PageFactory.initElements(driver, RegisterUserPage.class);
         userPage.createNewUser("35010119460101007X", "安七十一", "18217619891");
     }

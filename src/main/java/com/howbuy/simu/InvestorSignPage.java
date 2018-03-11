@@ -16,7 +16,8 @@ import java.util.NoSuchElementException;
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 
 
-/**私募合格投资者认定页面、风险测评页面
+/**
+ * 私募合格投资者认定页面、风险测评页面
  *
  * @author yang.zhou
  * @date 2017/10/17
@@ -28,7 +29,7 @@ public class InvestorSignPage extends BasePage {
     private String buyListPath = "/newpcsm/buylist.html";
 
     /**
-     *  合格投资者认定
+     * 合格投资者认定
      */
     @FindBy(xpath = "//*[contains(text(),'合格投资者认定')]")
     private List<WebElement> investorBook;
@@ -70,41 +71,45 @@ public class InvestorSignPage extends BasePage {
     private List<WebElement> riskValuationText;
 
 
-    public InvestorSignPage(WebDriver driver){
+    public InvestorSignPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
     @Override
-    public void open(){
+    public void open() {
         super.open(4085, buyListPath);
     }
 
-    private Boolean isQualifiedInvestor(){
+    private Boolean isQualifiedInvestor() {
         return investorBook.size() > 0;
     }
 
-    private Boolean isElectronicSignature(){
+    private Boolean isElectronicSignature() {
         return electronicSignBook.size() > 0;
     }
 
-    private Boolean isRiskeValuation(){return riskValuationText.size() > 0; }
+    private Boolean isRiskeValuation() {
+        return riskValuationText.size() > 0;
+    }
 
-    private Boolean isQualifiedAndRisk(){return isQualifiedInvestor() || isElectronicSignature() || isRiskeValuation();}
+    private Boolean isQualifiedAndRisk() {
+        return isQualifiedInvestor() || isElectronicSignature() || isRiskeValuation();
+    }
 
-    private void checkInvestorBook(){
+    private void checkInvestorBook() {
         logger.info("勾选合格投资者认定书.");
-        for (WebElement element: checkboxs){
-            if (!element.isSelected()){
+        for (WebElement element : checkboxs) {
+            if (!element.isSelected()) {
                 element.click();
             }
         }
         nextSetp.click();
     }
 
-    private void checkSignatureBook(){
+    private void checkSignatureBook() {
         logger.info("勾选电子签名约定书.");
-        if (!checkbox.isSelected()){
+        if (!checkbox.isSelected()) {
             checkbox.click();
         }
         TestUtils.scrollTo(driver, nextSetp.getLocation().getY());
@@ -112,34 +117,34 @@ public class InvestorSignPage extends BasePage {
         nextSetp.click();
     }
 
-    private void riskAssess(){
+    private void riskAssess() {
         logger.info("开始做风险测评");
         RiskValuationPage risk = PageFactory.initElements(driver, RiskValuationPage.class);
         risk.riskAssess();
     }
 
-    public void confirmOfInvestors(){
+    public void confirmOfInvestors() {
         open();
         TestUtils.sleep1s();
         diglog();
-        logger.info("判断用户是否需要签订合格投资者认定书、电子签名约定书，以及风险测评："+isQualifiedAndRisk());
-        if (isQualifiedInvestor()){
+        logger.info("判断用户是否需要签订合格投资者认定书、电子签名约定书，以及风险测评：" + isQualifiedAndRisk());
+        if (isQualifiedInvestor()) {
             checkInvestorBook();
         }
         diglog();
-        if (isElectronicSignature()){
+        if (isElectronicSignature()) {
             checkSignatureBook();
         }
         TestUtils.sleep1s();
-        if (isRiskeValuation()){
+        if (isRiskeValuation()) {
             riskAssess();
         }
     }
 
-    public void diglog(){
+    public void diglog() {
         try {
             wait.until(invisibilityOf(dialog));
-        }catch (NoSuchElementException | TimeoutException n){
+        } catch (NoSuchElementException | TimeoutException n) {
             logger.info("{}", n);
         }
     }

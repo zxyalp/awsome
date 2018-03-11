@@ -17,7 +17,8 @@ import java.util.List;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 
-/**1、购买页面
+/**
+ * 1、购买页面
  *
  * @author yang.zhou
  * @date 2017/9/11
@@ -86,16 +87,16 @@ public class BuyPage extends BasePage {
     private WebElement okBtn;
 
 
-    public BuyPage(WebDriver driver){
+    public BuyPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void buyOrderForm(String fundCode, String applyAmount, String appTm){
+    public void buyOrderForm(String fundCode, String applyAmount, String appTm) {
         buyOrderForm(fundCode, applyAmount, appTm, 1);
     }
 
-    public void  buyOrderForm(String fundCode, String applyAmount, String appTm, int index){
+    public void buyOrderForm(String fundCode, String applyAmount, String appTm, int index) {
         TestUtils.sleep3s();
         fundCodeText = wait.until(visibilityOf(fundCodeText));
         fundCodeText.clear();
@@ -114,19 +115,19 @@ public class BuyPage extends BasePage {
         submit();
     }
 
-    private void submit(){
+    private void submit() {
         confimBuyBtn.click();
         wait.until(visibilityOf(okBtn)).click();
     }
 
-    private void selectBank(int i){
-        if (selectBankValues.size() > 1){
+    private void selectBank(int i) {
+        if (selectBankValues.size() > 1) {
             selectBank.click();
-            selectBankValues.get(i-1).click();
+            selectBankValues.get(i - 1).click();
         }
     }
 
-    public void  orderInfo(String fundCode, String applyAmount){
+    public void orderInfo(String fundCode, String applyAmount) {
         buyOrderForm(fundCode, applyAmount, "090000");
     }
 

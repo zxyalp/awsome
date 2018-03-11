@@ -17,19 +17,19 @@ public class UrlBuilder extends URIBuilder {
     private static String host = PropertyUtils.getProperty("http.host");
 
 
-    public UrlBuilder  create(){
+    public UrlBuilder create() {
         super.setScheme("http");
-        if (StringUtils.isBlank(host)){
+        if (StringUtils.isBlank(host)) {
             throw new RuntimeException("您还未设置host值，请在conf.properties文件中设置http.host值.");
         }
         super.setHost(host);
-        if (getPort() == -1){
+        if (getPort() == -1) {
             setPort(1508);
         }
         return this;
     }
 
-    public UrlBuilder setPortPath(int port, String path){
+    public UrlBuilder setPortPath(int port, String path) {
         super.setPort(port);
         super.setPath(path);
         return this;

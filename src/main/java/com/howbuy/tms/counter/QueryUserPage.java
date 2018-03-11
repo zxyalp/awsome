@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
- *
  * @author yang.zhou
  * @date 2017/9/11
  */
@@ -31,7 +31,7 @@ public class QueryUserPage extends BasePage {
     @FindBy(id = "custName")
     private WebElement custNameElement;
 
-    @FindBy(id="idNo")
+    @FindBy(id = "idNo")
     private WebElement idNoElement;
 
     @FindBy(linkText = "查询")
@@ -50,39 +50,38 @@ public class QueryUserPage extends BasePage {
     private WebElement appointmentInfo;
 
 
-
-    public QueryUserPage(WebDriver driver){
+    public QueryUserPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void queryByCustNo(String custNo){
+    public void queryByCustNo(String custNo) {
         query(custNoElement, custNo);
     }
 
-    public void queryByIdNo(String idNo){
+    public void queryByIdNo(String idNo) {
         query(idNoElement, idNo);
     }
 
-    private void query(WebElement element, String cust){
+    private void query(WebElement element, String cust) {
         element.clear();
         element.sendKeys(cust);
         queryBtn.click();
         isCustInfo();
     }
 
-    private void isCustInfo(){
+    private void isCustInfo() {
         try {
             wait.until(visibilityOf(custInfo));
-        }catch (TimeoutException e){
+        } catch (TimeoutException e) {
             throw new RuntimeException("未查询到客户信息.");
         }
     }
 
-    private void isAppointmentInfo(){
+    private void isAppointmentInfo() {
         try {
             wait.until(visibilityOf(custInfo));
-        }catch (TimeoutException e){
+        } catch (TimeoutException e) {
             throw new RuntimeException("未查询到客户预约信息.");
         }
     }

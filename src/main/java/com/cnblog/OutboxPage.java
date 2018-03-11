@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 
-
 /**
  * Created by summe on 2017/5/29.
  */
@@ -30,36 +29,36 @@ public class OutboxPage {
     @FindBy(how = How.ID, using = "btnBatDel")
     WebElement delBtn;
 
-    private  final Logger logger = LoggerFactory.getLogger(OutboxPage.class);
+    private final Logger logger = LoggerFactory.getLogger(OutboxPage.class);
 
 
-    public OutboxPage(WebDriver driver){
+    public OutboxPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 3);
     }
 
-    public void delFirstMsg(){
+    public void delFirstMsg() {
         logger.info("delete first message.");
         delMsg(chkID);
     }
 
-    public void delAllMsg(){
+    public void delAllMsg() {
         logger.info("delete all messages.");
         delMsg(chkAllID);
     }
 
-    public void delMsg(WebElement chkElement){
+    public void delMsg(WebElement chkElement) {
 
         try {
             wait.until(visibilityOf(chkElement));
             wait.until(visibilityOf(delBtn));
-        }catch (TimeoutException e){
+        } catch (TimeoutException e) {
             logger.warn("No messages in Outbox." + e.toString());
             return;
         }
         chkElement.click();
         delBtn.click();
-        Alert alert =  wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
         TestUtils.sleep3s(1000);
         logger.info("delete success.");

@@ -8,20 +8,22 @@ import org.slf4j.LoggerFactory;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-/** 购买私募产品
+/**
+ * 购买私募产品
  * Created by yang.zhou on 2017/11/6.
  */
-public class BuySimuFundTest extends BaseTestCase{
+public class BuySimuFundTest extends BaseTestCase {
 
     private final Logger logger = LoggerFactory.getLogger(BuySimuFundTest.class);
 
     /**
      * 购买所有认购产品
+     *
      * @throws Exception
      */
 
     @Test(enabled = true)
-    public void loginSimuUser01() throws Exception{
+    public void loginSimuUser01() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199101016798", "qq1111");
 
@@ -36,11 +38,12 @@ public class BuySimuFundTest extends BaseTestCase{
 
     /**
      * 购买所有申购产品
+     *
      * @throws Exception
      */
 
     @Test(enabled = true)
-    public void loginSimuUser02() throws Exception{
+    public void loginSimuUser02() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198301013802", "qq1111");
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
@@ -57,10 +60,11 @@ public class BuySimuFundTest extends BaseTestCase{
 
     /**
      * 预约认购	P11601 单卡代扣
+     *
      * @throws Exception
      */
     @Test(enabled = false)
-    public void loginSimuUser03() throws Exception{
+    public void loginSimuUser03() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198801017156", "qq1111");
 
@@ -71,47 +75,50 @@ public class BuySimuFundTest extends BaseTestCase{
 
     /**
      * 预约认购	P11601 单卡自划款
+     *
      * @throws Exception
      */
     @Test(enabled = false)
-    public void loginSimuUser04() throws Exception{
+    public void loginSimuUser04() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199101017782", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
-        highEndBuyPage.buyHighFund("P11601", "3100000",2);
-        highEndBuyPage.buyHighFund("P11601", "5000000",2);
+        highEndBuyPage.buyHighFund("P11601", "3100000", 2);
+        highEndBuyPage.buyHighFund("P11601", "5000000", 2);
     }
 
 
     /**
      * 预约认购	P12596  P24761 多卡代扣
+     *
      * @throws Exception
      */
     @Test(enabled = false)
-    public void loginSimuUser05() throws Exception{
+    public void loginSimuUser05() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199101019323", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("P12596", "3100000");
         highEndBuyPage.buyHighFund("P12596", "3200000");
-        highEndBuyPage.buyHighFund("P12596", "2100000",2);
-        highEndBuyPage.buyHighFund("P12596", "2200000",2);
+        highEndBuyPage.buyHighFund("P12596", "2100000", 2);
+        highEndBuyPage.buyHighFund("P12596", "2200000", 2);
 
         highEndBuyPage.buyHighFund("P24761", "3100000");
         highEndBuyPage.buyHighFund("P24761", "2400000");
-        highEndBuyPage.buyHighFund("P24761", "1100000",2);
-        highEndBuyPage.buyHighFund("P24761", "2400000",2);
+        highEndBuyPage.buyHighFund("P24761", "1100000", 2);
+        highEndBuyPage.buyHighFund("P24761", "2400000", 2);
     }
 
 
     /**
      * 预约认购	P11601 多卡自划款
+     *
      * @throws Exception
      */
     @Test(enabled = false)
-    public void loginSimuUser06() throws Exception{
+    public void loginSimuUser06() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198401019582", "qq1111");
 
@@ -119,8 +126,8 @@ public class BuySimuFundTest extends BaseTestCase{
 
         highEndBuyPage.buyHighFund("P11601", "5100000");
         highEndBuyPage.buyHighFund("P11601", "5400000");
-        highEndBuyPage.buyHighFund("P11601", "3100000",2);
-        highEndBuyPage.buyHighFund("P11601", "3400000",2);
+        highEndBuyPage.buyHighFund("P11601", "3100000", 2);
+        highEndBuyPage.buyHighFund("P11601", "3400000", 2);
     }
 
     /**
@@ -128,7 +135,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser07() throws Exception{
+    public void loginSimuUser07() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199101016798", "qq1111");
 
@@ -143,7 +150,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser08() throws Exception{
+    public void loginSimuUser08() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198701012817", "qq1111");
 
@@ -158,15 +165,15 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser09() throws Exception{
+    public void loginSimuUser09() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101197601014677", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S21582", "2100000");
         highEndBuyPage.buyHighFund("S21582", "2100000");
-        highEndBuyPage.buyHighFund("S21582", "1100000",2);
-        highEndBuyPage.buyHighFund("S21582", "1100000",2);
+        highEndBuyPage.buyHighFund("S21582", "1100000", 2);
+        highEndBuyPage.buyHighFund("S21582", "1100000", 2);
     }
 
 
@@ -175,15 +182,15 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser10() throws Exception{
+    public void loginSimuUser10() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198701012956", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S22275", "5100000");
         highEndBuyPage.buyHighFund("S22275", "5100000");
-        highEndBuyPage.buyHighFund("S22275", "3100000",2);
-        highEndBuyPage.buyHighFund("S22275", "3100000",2);
+        highEndBuyPage.buyHighFund("S22275", "3100000", 2);
+        highEndBuyPage.buyHighFund("S22275", "3100000", 2);
     }
 
     /**
@@ -191,7 +198,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser11() throws Exception{
+    public void loginSimuUser11() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199401019771", "qq1111");
 
@@ -208,7 +215,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser12() throws Exception{
+    public void loginSimuUser12() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101197301011503", "qq1111");
 
@@ -221,26 +228,25 @@ public class BuySimuFundTest extends BaseTestCase{
     }
 
 
-
     /**
      * 预约申购	S28646 S29089 多卡代扣
      */
 
     @Test(enabled = false)
-    public void loginSimuUser13() throws Exception{
+    public void loginSimuUser13() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198801019370", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S28646", "3100000");
         highEndBuyPage.buyHighFund("S28646", "3500000");
-        highEndBuyPage.buyHighFund("S28646", "2100000",2);
-        highEndBuyPage.buyHighFund("S28646", "2500000",2);
+        highEndBuyPage.buyHighFund("S28646", "2100000", 2);
+        highEndBuyPage.buyHighFund("S28646", "2500000", 2);
 
         highEndBuyPage.buyHighFund("S29089", "4100000");
         highEndBuyPage.buyHighFund("S29089", "4600000");
-        highEndBuyPage.buyHighFund("S29089", "1100000",2);
-        highEndBuyPage.buyHighFund("S29089", "1600000",2);
+        highEndBuyPage.buyHighFund("S29089", "1100000", 2);
+        highEndBuyPage.buyHighFund("S29089", "1600000", 2);
     }
 
 
@@ -249,20 +255,20 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser14() throws Exception{
+    public void loginSimuUser14() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("32010119980101278X", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S28646", "5100000");
         highEndBuyPage.buyHighFund("S28646", "5500000");
-        highEndBuyPage.buyHighFund("S28646", "3100000",2);
-        highEndBuyPage.buyHighFund("S28646", "3500000",2);
+        highEndBuyPage.buyHighFund("S28646", "3100000", 2);
+        highEndBuyPage.buyHighFund("S28646", "3500000", 2);
 
         highEndBuyPage.buyHighFund("S29089", "6100000");
         highEndBuyPage.buyHighFund("S29089", "6600000");
-        highEndBuyPage.buyHighFund("S29089", "3100000",2);
-        highEndBuyPage.buyHighFund("S29089", "3600000",2);
+        highEndBuyPage.buyHighFund("S29089", "3100000", 2);
+        highEndBuyPage.buyHighFund("S29089", "3600000", 2);
     }
 
 
@@ -271,7 +277,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser15() throws Exception{
+    public void loginSimuUser15() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("32010119850101165X", "qq1111");
 
@@ -289,7 +295,7 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser16() throws Exception{
+    public void loginSimuUser16() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101197601016066", "qq1111");
 
@@ -304,20 +310,20 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser17() throws Exception{
+    public void loginSimuUser17() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198501014332", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S33873", "2500000");
         highEndBuyPage.buyHighFund("S33873", "2500000");
-        highEndBuyPage.buyHighFund("S33873", "1800000",2);
-        highEndBuyPage.buyHighFund("S33873", "1800000",2);
+        highEndBuyPage.buyHighFund("S33873", "1800000", 2);
+        highEndBuyPage.buyHighFund("S33873", "1800000", 2);
 
         highEndBuyPage.buyHighFund("S62866", "2200000");
         highEndBuyPage.buyHighFund("S62866", "2200000");
-        highEndBuyPage.buyHighFund("S62866", "1400000",2);
-        highEndBuyPage.buyHighFund("S62866", "1400000",2);
+        highEndBuyPage.buyHighFund("S62866", "1400000", 2);
+        highEndBuyPage.buyHighFund("S62866", "1400000", 2);
     }
 
 
@@ -326,15 +332,15 @@ public class BuySimuFundTest extends BaseTestCase{
      */
 
     @Test(enabled = false)
-    public void loginSimuUser18() throws Exception{
+    public void loginSimuUser18() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("32010119980101286X", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S37842", "5500000");
         highEndBuyPage.buyHighFund("S37842", "5500000");
-        highEndBuyPage.buyHighFund("S33873", "3800000",2);
-        highEndBuyPage.buyHighFund("S33873", "3800000",2);
+        highEndBuyPage.buyHighFund("S33873", "3800000", 2);
+        highEndBuyPage.buyHighFund("S33873", "3800000", 2);
     }
 
 
@@ -342,7 +348,7 @@ public class BuySimuFundTest extends BaseTestCase{
      * 预约认购	P12596  P24761 储蓄罐
      */
     @Test(enabled = false)
-    public void loginSimuUser19() throws Exception{
+    public void loginSimuUser19() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198801018159", "qq1111");
 
@@ -357,7 +363,7 @@ public class BuySimuFundTest extends BaseTestCase{
      * 非预约认购	S21582 储蓄罐
      */
     @Test(enabled = false)
-    public void loginSimuUser20() throws Exception{
+    public void loginSimuUser20() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101199501012550", "qq1111");
 
@@ -371,7 +377,7 @@ public class BuySimuFundTest extends BaseTestCase{
      * 预约申购	S28646 S29089 储蓄罐
      */
     @Test(enabled = false)
-    public void loginSimuUser21() throws Exception{
+    public void loginSimuUser21() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101197901013684", "qq1111");
 
@@ -387,7 +393,7 @@ public class BuySimuFundTest extends BaseTestCase{
      * 非预约申购	S33873 S62866 储蓄罐
      */
     @Test(enabled = false)
-    public void loginSimuUser22() throws Exception{
+    public void loginSimuUser22() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198901018228", "qq1111");
 

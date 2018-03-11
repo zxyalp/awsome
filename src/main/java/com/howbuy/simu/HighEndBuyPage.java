@@ -219,7 +219,7 @@ public class HighEndBuyPage extends BasePage {
     }
 
     @Override
-    public void open(){
+    public void open() {
         super.open(4085, buyListPath);
     }
 
@@ -241,12 +241,12 @@ public class HighEndBuyPage extends BasePage {
                 TestUtils.sleep1s();
                 buyIndexBtn.click();
             } catch (NoSuchElementException n) {
-                TestUtils.screenshort(driver, fundCode+"产品无法购买.");
-                throw new RuntimeException("产品"+fundCode+"无法购买.");
+                TestUtils.screenshort(driver, fundCode + "产品无法购买.");
+                throw new RuntimeException("产品" + fundCode + "无法购买.");
             }
         } catch (NoSuchElementException e) {
-            TestUtils.screenshort(driver, fundCode+"查询失败.");
-            throw new RuntimeException("查询产品失败："+fundCode);
+            TestUtils.screenshort(driver, fundCode + "查询失败.");
+            throw new RuntimeException("查询产品失败：" + fundCode);
         }
 
     }

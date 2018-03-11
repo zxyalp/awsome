@@ -15,10 +15,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
  * 搜索产品
+ *
  * @author yang.zhou
  * @date 2017/12/20
  */
-public class SearchFundPage extends BasePage{
+public class SearchFundPage extends BasePage {
 
     private final Logger logger = LoggerFactory.getLogger(SearchFundPage.class.getName());
 
@@ -65,36 +66,36 @@ public class SearchFundPage extends BasePage{
     private List<WebElement> floridianBtn;
 
 
-    public SearchFundPage(WebDriver driver){
+    public SearchFundPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void searchFund(String fundCode){
+    public void searchFund(String fundCode) {
         open();
         try {
             wait.until(visibilityOf(searchInput)).sendKeys(fundCode);
             searchBtn.click();
             TestUtils.sleep2s();
-            if (buyList.isEmpty()){
+            if (buyList.isEmpty()) {
                 throw new RuntimeException("没有查到结果");
             }
 
-            if (!buyBtn.isEnabled()){
+            if (!buyBtn.isEnabled()) {
                 throw new RuntimeException("购买按钮不可用");
             }
-            if (floridianBtn.size()>0){
+            if (floridianBtn.size() > 0) {
                 throw new RuntimeException("产品已售罄.");
             }
             buyBtn.click();
-        }catch (TimeoutException e){
-            throw new RuntimeException("查询产品超时》",e);
+        } catch (TimeoutException e) {
+            throw new RuntimeException("查询产品超时》", e);
         }
 
     }
 
     @Override
     public void open() {
-        super.open(15080,buyListPath);
+        super.open(15080, buyListPath);
     }
 }

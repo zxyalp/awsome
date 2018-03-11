@@ -45,7 +45,7 @@ public class BuyFundTest {
     }
 
     @Test(enabled = false)
-    public void sellVolTest() throws Exception{
+    public void sellVolTest() throws Exception {
         TradePage trade = PageFactory.initElements(driver, TradePage.class);
         trade.get(tmsCounterUrl, "s001");
         trade.queryCustNoToBuy("1100878270");
@@ -57,7 +57,7 @@ public class BuyFundTest {
     public void checkOrderTest() throws Exception {
         OrderCheckPage checkPage = PageFactory.initElements(driver, OrderCheckPage.class);
         checkPage.get(tmsCounterUrl, "s002");
-        for (; checkPage.size() > 0;) {
+        for (; checkPage.size() > 0; ) {
             if (checkPage.isSameOperator())
                 checkPage.get(tmsCounterUrl, checkPage.getOtherOperator());
             checkPage.checkFirstOrder();

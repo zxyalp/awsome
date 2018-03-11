@@ -2,6 +2,7 @@ package com.howbuy.common;
 
 /**
  * 支付方式枚举类
+ *
  * @author yang.zhou
  * @date 2017/12/21
  */
@@ -30,7 +31,7 @@ public enum PaymentType {
     String name;
     int value;
 
-    PaymentType(String name, int value){
+    PaymentType(String name, int value) {
         this.value = value;
         this.name = name;
     }

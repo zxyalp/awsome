@@ -13,7 +13,9 @@ import com.howbuy.common.TestUtils;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-/**交易网站登录
+/**
+ * 交易网站登录
+ *
  * @author yang.zhou
  * Created by yang.zhou on 2017/9/29.
  */
@@ -57,7 +59,7 @@ public class LoginWebPage extends BasePage {
     private WebElement activateacctLink;
 
 
-    public LoginWebPage(WebDriver driver){
+    public LoginWebPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
@@ -68,7 +70,7 @@ public class LoginWebPage extends BasePage {
         super.open(15080, loginPath);
     }
 
-    public void login(String idNo, String password){
+    public void login(String idNo, String password) {
         open();
         TestUtils.sleep1s();
         idNoText = wait.until(visibilityOf(idNoText));

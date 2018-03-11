@@ -6,10 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-/**中台柜台下单
+/**
+ * 中台柜台下单
  * Created by yang.zhou on 2017/11/7.
  */
-public class buyProductByCounterTest extends BaseTestCase{
+public class buyProductByCounterTest extends BaseTestCase {
 
     private final Logger logger = LoggerFactory.getLogger(buyProductByCounterTest.class);
 
@@ -86,8 +87,8 @@ public class buyProductByCounterTest extends BaseTestCase{
         trade.buy("028050", "2200000", "100000");
         trade.buy("028051", "2400000", "100000");
 
-        trade.buy("028050", "2200000", "100000",2);
-        trade.buy("028051", "2400000", "100000",2);
+        trade.buy("028050", "2200000", "100000", 2);
+        trade.buy("028051", "2400000", "100000", 2);
     }
 
 
@@ -97,9 +98,9 @@ public class buyProductByCounterTest extends BaseTestCase{
         trade.get(tmsCounterUrl, "s001");
         trade.queryCustNoToBuy("1100876156");
         trade.buy("028050", "3200000", "100000");
-        trade.buy("028050", "3300000", "100000",2);
+        trade.buy("028050", "3300000", "100000", 2);
         trade.buy("028051", "3400000", "100000");
-        trade.buy("028051", "3500000", "100000",2);
+        trade.buy("028051", "3500000", "100000", 2);
     }
 
 
@@ -109,9 +110,9 @@ public class buyProductByCounterTest extends BaseTestCase{
         trade.get(tmsCounterUrl, "s001");
         trade.queryCustNoToBuy("1100876147");
         trade.buy("246010", "1200000", "100000");
-        trade.buy("246010", "1300000", "100000",2);
+        trade.buy("246010", "1300000", "100000", 2);
         trade.buy("246020", "1400000", "100000");
-        trade.buy("246020", "1500000", "100000",2);
+        trade.buy("246020", "1500000", "100000", 2);
     }
 
     @Test(enabled = true)
@@ -120,8 +121,8 @@ public class buyProductByCounterTest extends BaseTestCase{
         trade.get(tmsCounterUrl, "s001");
         trade.queryCustNoToBuy("1100876131");
         trade.buy("246010", "3200000", "100000");
-        trade.buy("246010", "3300000", "100000",2);
+        trade.buy("246010", "3300000", "100000", 2);
         trade.buy("246020", "3400000", "100000");
-        trade.buy("246020", "3500000", "100000",2);
+        trade.buy("246020", "3500000", "100000", 2);
     }
 }

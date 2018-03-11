@@ -22,10 +22,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
  * 订单审核页面
+ *
  * @author yang.zhou
  * @date 2017/9/12
  */
-public class OrderCheckPage extends BasePage{
+public class OrderCheckPage extends BasePage {
 
     private final Logger logger = LoggerFactory.getLogger(OrderCheckPage.class.getName());
 
@@ -65,8 +66,8 @@ public class OrderCheckPage extends BasePage{
     /**
      * 获取首条复核按钮
      */
-    @FindBys({ @FindBy(xpath = "//tbody[@id='rsList']/tr[count(td)>8]"),
-               @FindBy(className = "reCheck")})
+    @FindBys({@FindBy(xpath = "//tbody[@id='rsList']/tr[count(td)>8]"),
+            @FindBy(className = "reCheck")})
     private WebElement firstCheckBtn;
 
     /**
@@ -118,7 +119,7 @@ public class OrderCheckPage extends BasePage{
     private WebElement bankAcctInput;
 
     /**
-     *  审核通过
+     * 审核通过
      */
     @FindBy(className = "layui-layer-btn0")
     private WebElement approvedBtn;
@@ -171,15 +172,15 @@ public class OrderCheckPage extends BasePage{
     }
 
     /**
-     *  获取地址链接 operatorNo=
-     * */
+     * 获取地址链接 operatorNo=
+     */
     public String getOperatorNo() {
         return getUrl().split("operatorNo=")[1];
     }
 
     /**
      * 获取所有待审核订单列表数量
-     * */
+     */
 
     public int size() {
         TestUtils.sleep2s();
@@ -220,7 +221,7 @@ public class OrderCheckPage extends BasePage{
      * 如果返回另一个用户
      */
 
-    public String getOtherOperator(){
+    public String getOtherOperator() {
         if (this.operatorNo.equals("s001")) {
             return "s002";
         }
@@ -246,7 +247,7 @@ public class OrderCheckPage extends BasePage{
         appAmtText = wait.until(visibilityOf(appAmtText));
         String appAmt = TestUtils.matcher(appAmtText.getText(), "\\.|\\d");
         String bankAcct = TestUtils.matcher(bankAcctText.getText(), "\\d");
-        logger.info("提取金额、银行卡号后4位：" + appAmt+","+bankAcct);
+        logger.info("提取金额、银行卡号后4位：" + appAmt + "," + bankAcct);
         Map<String, String> fund = new HashMap<>();
         fund.put("fundCode", fundCodeText.getText());
         fund.put("appAmt", appAmt);

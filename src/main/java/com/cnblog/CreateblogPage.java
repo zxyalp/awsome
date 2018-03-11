@@ -31,12 +31,12 @@ public class CreateblogPage {
     WebElement sendBtn;
 
 
-    public CreateblogPage(WebDriver driver){
+    public CreateblogPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
     }
 
-    public void createMsg(String incept, String title, String content){
+    public void createMsg(String incept, String title, String content) {
         TestUtils.sleep3s(1000);
         inceptText.sendKeys(incept);
         TestUtils.sleep3s(1000);

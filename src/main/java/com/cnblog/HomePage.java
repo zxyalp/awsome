@@ -26,15 +26,15 @@ public class HomePage {
     @FindBy(how = How.LINK_TEXT, using = "退出")
     WebElement logoutLink;
 
-    private  final Logger logger = LoggerFactory.getLogger(HomePage.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(HomePage.class.getName());
 
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
     }
 
-    public void openBlog(String url){
+    public void openBlog(String url) {
         driver.get(url);
     }
 
@@ -47,7 +47,7 @@ public class HomePage {
         loginPage.loginBlog(userName, passWord);
     }
 
-    public void logout(){
+    public void logout() {
         logoutLink = wait.until(visibilityOf(logoutLink));
         logger.info("logout cnblog...");
         logoutLink.click();

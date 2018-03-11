@@ -8,11 +8,11 @@ import org.testng.annotations.Test;
 /**
  * Created by yang.zhou on 2017/11/7.
  */
-public class SignAndRiskTest01 extends BaseTestCase{
+public class SignAndRiskTest01 extends BaseTestCase {
 
 
     @Test(enabled = false)
-    public void signAndRiskTest() throws Exception{
+    public void signAndRiskTest() throws Exception {
         OnlineTradePage tradePage = PageFactory.initElements(driver, OnlineTradePage.class);
         tradePage.signAndRiskValuation("320101198901012459");
 

@@ -8,21 +8,23 @@ import org.slf4j.LoggerFactory;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-/** 购买私募产品
+/**
+ * 购买私募产品
  * Created by yang.zhou on 2017/11/6.
  */
-public class BuySimuFundTest01 extends BaseTestCase{
+public class BuySimuFundTest01 extends BaseTestCase {
 
     private final Logger logger = LoggerFactory.getLogger(BuySimuFundTest01.class);
 
 
     /**
      * 开放日最后一天预约自划款 S29493 S29837
+     *
      * @throws Exception
      */
 
     @Test(enabled = true)
-    public void loginSimuUser01() throws Exception{
+    public void loginSimuUser01() throws Exception {
         LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101197301011503", "qq1111");
 
@@ -34,12 +36,13 @@ public class BuySimuFundTest01 extends BaseTestCase{
 
     /**
      * 开放日最后一天预约自划款 S29493 S29837
+     *
      * @throws Exception
      */
 
     @Test(enabled = true)
-    public void loginSimuUser02() throws Exception{
-        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);        
+    public void loginSimuUser02() throws Exception {
+        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("32010119980101278X", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
@@ -56,8 +59,9 @@ public class BuySimuFundTest01 extends BaseTestCase{
      */
 
     @Test(enabled = true)
-    public void loginSimuUser15() throws Exception{
-        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);        login.login("320101197601016066", "qq1111");
+    public void loginSimuUser15() throws Exception {
+        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
+        login.login("320101197601016066", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
         highEndBuyPage.buyHighFund("S29494", "2100000");
@@ -71,8 +75,9 @@ public class BuySimuFundTest01 extends BaseTestCase{
      */
 
     @Test(enabled = true)
-    public void loginSimuUser16() throws Exception{
-        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);        login.login("320101199101016798", "qq1111");
+    public void loginSimuUser16() throws Exception {
+        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
+        login.login("320101199101016798", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);
 

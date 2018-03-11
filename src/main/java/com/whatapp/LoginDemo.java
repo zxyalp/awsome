@@ -23,20 +23,20 @@ public class LoginDemo {
 
 
     @BeforeClass
-    public void setDriverClass() throws Exception{
+    public void setDriverClass() throws Exception {
         System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver_2.34\\chromedriver.exe");
 
     }
 
     @BeforeMethod
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         driver = new ChromeDriver();
 
     }
 
 
     @Test
-    public void loginTest(){
+    public void loginTest() {
         driver.get("http://www.yikuyi.com/bom.htm");
         Wait<WebDriver> wait = new WebDriverWait(driver, 10);
 
@@ -45,23 +45,24 @@ public class LoginDemo {
         btn.click();
 
     }
-    private static void sleep3s(){
+
+    private static void sleep3s() {
         sleep3s(3000);
     }
 
-    public static void sleep3s(long s){
+    public static void sleep3s(long s) {
         try {
             Thread.sleep(s);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void scrollTo(WebDriver driver, int ypos){
+    public static void scrollTo(WebDriver driver, int ypos) {
         scrollTo(driver, 0, ypos);
     }
 
-    public static void scrollTo(WebDriver driver, int xpos, int ypos){
+    public static void scrollTo(WebDriver driver, int xpos, int ypos) {
         ((JavascriptExecutor) driver).executeScript(String.format("window.scrollTo(%s, %s)", xpos, ypos));
     }
 }

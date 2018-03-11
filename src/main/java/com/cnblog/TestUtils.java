@@ -9,23 +9,23 @@ import org.openqa.selenium.WebDriver;
  */
 public class TestUtils {
 
-    public static void sleep3s(){
+    public static void sleep3s() {
         sleep3s(3000);
     }
 
-    public static void sleep3s(long s){
+    public static void sleep3s(long s) {
         try {
             Thread.sleep(s);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void scrollTo(WebDriver driver, int ypos){
+    public static void scrollTo(WebDriver driver, int ypos) {
         scrollTo(driver, 0, ypos);
     }
 
-    public static void scrollTo(WebDriver driver, int xpos, int ypos){
+    public static void scrollTo(WebDriver driver, int xpos, int ypos) {
         ((JavascriptExecutor) driver).executeScript(String.format("window.scrollTo(%s, %s)", xpos, ypos));
     }
 

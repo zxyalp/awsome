@@ -27,12 +27,12 @@ import java.util.regex.Matcher;
 public class App {
     public static void main(String[] args) throws MalformedURLException {
 
-            doGet01();
+        doGet01();
 
     }
 
 
-    public static void doGet(){
+    public static void doGet() {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -58,7 +58,7 @@ public class App {
             System.out.println("========================");
             Header[] headers = response1.getAllHeaders();
 
-            for (Header header: headers){
+            for (Header header : headers) {
                 System.out.println(header.toString());
             }
 
@@ -81,7 +81,7 @@ public class App {
     }
 
 
-    public static void doGet01(){
+    public static void doGet01() {
 
         File file = new File("D://data//1.jpeg");
 
@@ -90,7 +90,7 @@ public class App {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        HttpHost httpHost = new  HttpHost("127.0.0.1", 8888, "http");
+        HttpHost httpHost = new HttpHost("127.0.0.1", 8888, "http");
 
         RequestConfig config = RequestConfig.custom().setProxy(httpHost).build();
 
@@ -114,7 +114,7 @@ public class App {
 
             byte[] size = new byte[1024];
 
-            while ((len = in.read(size)) != -1){
+            while ((len = in.read(size)) != -1) {
                 out.write(size, 0, len);
             }
 

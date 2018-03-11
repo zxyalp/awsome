@@ -17,10 +17,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
  * 支付购买页面
+ *
  * @author yang.zhou
  * @date 2017/12/21
  */
-public class PayInfoPage extends BasePage{
+public class PayInfoPage extends BasePage {
 
 
     private final Logger logger = LoggerFactory.getLogger(PayInfoPage.class.getName());
@@ -40,7 +41,7 @@ public class PayInfoPage extends BasePage{
 
     /**
      * 买入金额
-     * */
+     */
     @FindBy(id = "buyAmount")
     private WebElement buyAmount;
 
@@ -116,22 +117,23 @@ public class PayInfoPage extends BasePage{
     @FindBy(css = "[value='继续购买']")
     private List<WebElement> twoRiskBtn;
 
-    public PayInfoPage(WebDriver driver){
+    public PayInfoPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
     /**
      * 购买第一步
-     * @param amount 买入金额
+     *
+     * @param amount      买入金额
      * @param paymentType 支付方式：0-储蓄罐，1-银行转账，2-银行代扣
      * @param index
      */
-    public void pay(String amount, int index, PaymentType paymentType){
+    public void pay(String amount, int index, PaymentType paymentType) {
         try {
             TestUtils.sleep1s();
 
-            if (cxgPayTip.isDisplayed()){
+            if (cxgPayTip.isDisplayed()) {
                 logger.info("关闭储蓄罐支付上线提示tip.");
                 msgBtn.click();
             }
@@ -139,33 +141,33 @@ public class PayInfoPage extends BasePage{
             wait.until(visibilityOf(buyAmount)).sendKeys(amount);
             TestUtils.sleep1s();
 
-            logger.info("选择支付方式："+paymentType.getName());
+            logger.info("选择支付方式：" + paymentType.getName());
 
-            if (paymentType==PaymentType.DEFAULT_PAY){
+            if (paymentType == PaymentType.DEFAULT_PAY) {
                 logger.info("选择默认支付方式.");
-            }else {
-                logger.info("非默认支付方式，选择其他支付方式："+paymentType.getName());
+            } else {
+                logger.info("非默认支付方式，选择其他支付方式：" + paymentType.getName());
                 payMethods.click();
                 TestUtils.sleep1s();
             }
 
-            if (paymentType==PaymentType.CXG_PAY){
+            if (paymentType == PaymentType.CXG_PAY) {
                 payXcg.click();
             }
 
-            if (paymentType==PaymentType.BANK_LINE_PAY){
+            if (paymentType == PaymentType.BANK_LINE_PAY) {
                 payBankLine.click();
             }
 
-            if (paymentType==PaymentType.BANK_CARD_PAY){
+            if (paymentType == PaymentType.BANK_CARD_PAY) {
                 payBank.click();
             }
 
             TestUtils.sleep1s();
 
-            int  size = cxgAndBankList.size();
-            if (size > 1 &&  size >= index){
-                WebElement bankCardChecked = cxgAndBankList.get(index-1);
+            int size = cxgAndBankList.size();
+            if (size > 1 && size >= index) {
+                WebElement bankCardChecked = cxgAndBankList.get(index - 1);
                 TestUtils.scrollTo(driver, bankCardChecked.getLocation().getY());
                 if (!bankCardChecked.isSelected()) {
                     logger.info("选择第" + index + "张银行卡支付.");
@@ -173,31 +175,30 @@ public class PayInfoPage extends BasePage{
                 }
             }
 
-            if (!branchName.isEmpty()){
+            if (!branchName.isEmpty()) {
                 branchName.get(0).sendKeys("wap测试支行");
             }
 
             TestUtils.scrollTo(driver, nextStepBtn.getLocation().getY());
 
-            if (nextStepBtn.isEnabled()){
+            if (nextStepBtn.isEnabled()) {
                 nextStepBtn.click();
-            }else {
+            } else {
                 logger.error("下一步按钮不可用");
                 throw new RuntimeException("下一步按钮不可用");
             }
 
             TestUtils.sleep1s();
 
-            if (!twoRiskBtn.isEmpty()){
+            if (!twoRiskBtn.isEmpty()) {
                 logger.info("需要客户二次风险确认.");
                 twoRiskBtn.get(0).click();
             }
 
-        }catch (TimeoutException e){
-            throw  new TimeoutException("下单异常");
+        } catch (TimeoutException e) {
+            throw new TimeoutException("下单异常");
         }
     }
-
 
 
 }

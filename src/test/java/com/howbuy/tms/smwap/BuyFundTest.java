@@ -17,7 +17,7 @@ public class BuyFundTest extends BaseTestCase {
     private final Logger logger = LoggerFactory.getLogger(BuyFundTest.class);
 
     @Test(enabled = true)
-    public void loginWap01() throws Exception{
+    public void loginWap01() throws Exception {
         LoginWapPage wapPage = PageFactory.initElements(driver, LoginWapPage.class);
         wapPage.loginWap("32010119980101286X");
 

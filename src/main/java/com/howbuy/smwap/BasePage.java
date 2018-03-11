@@ -8,10 +8,11 @@ import org.openqa.selenium.Dimension;
 
 /**
  * base page
+ *
  * @author yang.zhou
  * @date 2017/12/20
  */
-public abstract class BasePage extends AbstractBasePage{
+public abstract class BasePage extends AbstractBasePage {
 
 
     private final Logger logger = LoggerFactory.getLogger(BasePage.class);
@@ -20,8 +21,8 @@ public abstract class BasePage extends AbstractBasePage{
 
 
     @Override
-    public void get(String url){
-        get(url,new Dimension(620,725));
+    public void get(String url) {
+        get(url, new Dimension(620, 725));
     }
 
 }

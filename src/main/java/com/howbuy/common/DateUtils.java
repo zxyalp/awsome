@@ -8,6 +8,7 @@ import java.util.Date;
 
 /**
  * 日期工具类
+ *
  * @author yang.zhou
  * @date 2017/12/18
  */
@@ -17,14 +18,14 @@ public class DateUtils {
 
     private static DateUtils dateUtils = null;
 
-    private DateUtils(){
+    private DateUtils() {
 
     }
 
-    public static DateUtils getInstance(){
-        if (dateUtils == null){
-            synchronized (DateUtils.class){
-                if (dateUtils == null){
+    public static DateUtils getInstance() {
+        if (dateUtils == null) {
+            synchronized (DateUtils.class) {
+                if (dateUtils == null) {
                     dateUtils = new DateUtils();
                 }
             }
@@ -32,15 +33,15 @@ public class DateUtils {
         return dateUtils;
     }
 
-    public static String getNowDate(){
+    public static String getNowDate() {
         return getUserDate("yyyy-MM-dd");
     }
 
-    public static String getNowTime(){
+    public static String getNowTime() {
         return getUserDate("HHmmss");
     }
 
-    public static String getUserDate(String format){
+    public static String getUserDate(String format) {
         Date currentTime = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat(format);
         return dateFormat.format(currentTime);

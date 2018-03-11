@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 百度search
+ *
  * @author summe
  * @date 2017/12/17
  */
@@ -37,11 +38,11 @@ public class BaiduTest {
     }
 
     @Test
-    public void baiduSearchTest(){
-            driver.get("https://www.baidu.com/index.php");
-            driver.findElement(By.id("kw")).sendKeys("北京时间");
-            driver.findElement(By.id("su")).click();
-        for (int i =1 ; i<10;i++) {
+    public void baiduSearchTest() {
+        driver.get("https://www.baidu.com/index.php");
+        driver.findElement(By.id("kw")).sendKeys("北京时间");
+        driver.findElement(By.id("su")).click();
+        for (int i = 1; i < 10; i++) {
             sleep3s();
             TestUtils.screenshort(driver, "result");
             driver.navigate().refresh();
@@ -49,7 +50,7 @@ public class BaiduTest {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         System.out.println("==============END==============");
     }
 

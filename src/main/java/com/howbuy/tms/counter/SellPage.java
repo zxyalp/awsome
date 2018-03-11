@@ -13,6 +13,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
  * 赎回页面
+ *
  * @author yang.zhou
  * @date 2017/9/29
  */
@@ -70,12 +71,12 @@ public class SellPage extends BasePage {
     private WebElement okBtn;
 
 
-    public SellPage(WebDriver driver){
+    public SellPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void  sellOrderForm(String fundCode, String appVol, String appTm){
+    public void sellOrderForm(String fundCode, String appVol, String appTm) {
         TestUtils.sleep3s();
         fundCodeText = wait.until(visibilityOf(fundCodeText));
         fundCodeText.clear();
@@ -92,7 +93,7 @@ public class SellPage extends BasePage {
         submit();
     }
 
-    private void submit(){
+    private void submit() {
         confimSellBtn.click();
         wait.until(visibilityOf(okBtn)).click();
     }

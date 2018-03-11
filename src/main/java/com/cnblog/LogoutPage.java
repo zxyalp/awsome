@@ -15,15 +15,15 @@ public class LogoutPage {
     WebDriver driver;
     Wait<WebDriver> wait;
 
-    public LogoutPage(WebDriver driver){
+    public LogoutPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
 
     }
 
 
-    public void logout(){
-        Alert alert =  wait.until(ExpectedConditions.alertIsPresent());
+    public void logout() {
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
 

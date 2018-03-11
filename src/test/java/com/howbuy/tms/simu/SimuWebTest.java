@@ -14,14 +14,14 @@ import org.testng.annotations.*;
 /**
  * Created by yang.zhou on 2017/9/29.
  */
-public class SimuWebTest extends BaseTestCase{
+public class SimuWebTest extends BaseTestCase {
 
     private final Logger logger = LoggerFactory.getLogger(SimuWebTest.class);
 
 
     @Test(enabled = true)
-    public void loginSimuUser01() throws Exception{
-        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);        
+    public void loginSimuUser01() throws Exception {
+        LoginWebPage login = PageFactory.initElements(driver, LoginWebPage.class);
         login.login("320101198801018159", "qq1111");
 
         HighEndBuyPage highEndBuyPage = PageFactory.initElements(driver, HighEndBuyPage.class);

@@ -28,20 +28,20 @@ public class FanLiCookie {
     }
 
     @BeforeClass
-    public void setDriverClass() throws Exception{
+    public void setDriverClass() throws Exception {
         System.out.println("=========开始执行===============");
 
 
     }
 
     @BeforeMethod
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         driver = new ChromeDriver();
 
     }
 
     @Test
-    public void aSaveCookieTest(){
+    public void aSaveCookieTest() {
         driver.get("https://passport.fanli.com/login");
 
 
@@ -79,7 +79,7 @@ public class FanLiCookie {
 
 
     @Test(invocationCount = 1)
-    public void bReadCookieTest(){
+    public void bReadCookieTest() {
 
         driver.get("https://passport.fanli.com/login");
 
@@ -105,47 +105,46 @@ public class FanLiCookie {
     }
 
     @AfterMethod
-    public void tearDown() throws Exception{
+    public void tearDown() throws Exception {
         driver.close();
     }
 
     @AfterClass
-    public void tearDownClass() throws Exception{
+    public void tearDownClass() throws Exception {
         System.out.println("=====END====");
     }
 
 
-
-    public void writeCookie(WebDriver driver, String filename){
+    public void writeCookie(WebDriver driver, String filename) {
         File cookieFile = new File(filename);
-        BufferedWriter bufferedWriter=null;
+        BufferedWriter bufferedWriter = null;
         try {
             if (cookieFile.exists())
                 cookieFile.delete();
             cookieFile.createNewFile();
             bufferedWriter = new BufferedWriter(new FileWriter(cookieFile));
 
-            for (Cookie cookie: driver.manage().getCookies()){
+            for (Cookie cookie : driver.manage().getCookies()) {
 
                 Date date = cookie.getExpiry();
                 String exp = null;
-                if (date!=null){
+                if (date != null) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                     sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
                     exp = sdf.format(date);
                 }
 
-                bufferedWriter.write((cookie.getName()+";"+cookie.getValue()+";"+cookie.getDomain()+";"+
-                        cookie.getPath()+";"+exp+";"+cookie.isSecure()));
+                bufferedWriter.write((cookie.getName() + ";" + cookie.getValue() + ";" + cookie.getDomain() + ";" +
+                        cookie.getPath() + ";" + exp + ";" + cookie.isSecure()));
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (bufferedWriter!=null)
+                if (bufferedWriter != null)
                     bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -154,23 +153,23 @@ public class FanLiCookie {
     }
 
 
-    public void readCookie(WebDriver driver, String filename){
+    public void readCookie(WebDriver driver, String filename) {
 
         File cookieFile = new File(filename);
         BufferedReader bufReader = null;
-        try{
+        try {
             bufReader = new BufferedReader(new FileReader(cookieFile));
             String line;
-            while ((line=bufReader.readLine())!=null){
+            while ((line = bufReader.readLine()) != null) {
                 StringTokenizer stringTokenizer = new StringTokenizer(line, ";");
-                while (stringTokenizer.hasMoreTokens()){
+                while (stringTokenizer.hasMoreTokens()) {
                     String name = stringTokenizer.nextToken();
                     String value = stringTokenizer.nextToken();
                     String domain = stringTokenizer.nextToken();
                     String path = stringTokenizer.nextToken();
                     String dt = stringTokenizer.nextToken();
-                    Date expiry=null;
-                    if (!dt.equals("null")){
+                    Date expiry = null;
+                    if (!dt.equals("null")) {
                         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                         df.setTimeZone(TimeZone.getTimeZone("UTC"));
                         expiry = df.parse(dt);
@@ -182,35 +181,35 @@ public class FanLiCookie {
             }
 
 
-        } catch (IOException | ParseException e){
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (bufReader!=null)
+                if (bufReader != null)
                     bufReader.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private static void sleep3s(){
+    private static void sleep3s() {
         sleep3s(3000);
     }
 
-    public static void sleep3s(long s){
+    public static void sleep3s(long s) {
         try {
             Thread.sleep(s);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void scrollTo(WebDriver driver, int ypos){
+    public static void scrollTo(WebDriver driver, int ypos) {
         scrollTo(driver, 0, ypos);
     }
 
-    public static void scrollTo(WebDriver driver, int xpos, int ypos){
+    public static void scrollTo(WebDriver driver, int xpos, int ypos) {
         ((JavascriptExecutor) driver).executeScript(String.format("window.scrollTo(%s, %s)", xpos, ypos));
     }
 

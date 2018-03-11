@@ -34,25 +34,25 @@ public class MessagePage {
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "收件箱")
     WebElement inboxLink;
 
-    private  final Logger logger = LoggerFactory.getLogger(MessagePage.class);
+    private final Logger logger = LoggerFactory.getLogger(MessagePage.class);
 
-    public MessagePage(WebDriver driver){
+    public MessagePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
 
     }
 
-    public void toMessagePage(){
-        shortMsgLink  = wait.until(visibilityOf(shortMsgLink));
+    public void toMessagePage() {
+        shortMsgLink = wait.until(visibilityOf(shortMsgLink));
         shortMsgLink.click();
     }
 
-    public void toOutboxPage(){
+    public void toOutboxPage() {
         outboxLink = wait.until(visibilityOf(outboxLink));
         outboxLink.click();
     }
 
-    public void createMsg(String incept, String title, String content){
+    public void createMsg(String incept, String title, String content) {
         newMsgLink.click();
 
         logger.info("create a message.");
@@ -68,7 +68,7 @@ public class MessagePage {
         outboxPage.delFirstMsg();
     }
 
-    public void delAllMsg(){
+    public void delAllMsg() {
         toOutboxPage();
 
         OutboxPage outboxPage = PageFactory.initElements(driver, OutboxPage.class);

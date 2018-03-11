@@ -12,6 +12,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 /**
  * 我的私募首页
+ *
  * @author yang.zhou
  * @date 2017/12/20
  */
@@ -39,23 +40,22 @@ public class MyHomePage extends BasePage {
     private WebElement recordListLink;
 
 
-    public MyHomePage(WebDriver driver){
+    public MyHomePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    public void clickBuyList(){
+    public void clickBuyList() {
         wait.until(visibilityOf(buyListLink)).click();
     }
 
-    public void clickSellList(){
+    public void clickSellList() {
         wait.until(visibilityOf(sellListLnk)).click();
     }
 
-    public void clickRecordList(){
+    public void clickRecordList() {
         wait.until(visibilityOf(recordListLink)).click();
     }
-
 
 
 }

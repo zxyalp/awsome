@@ -30,7 +30,7 @@ public class BaseTestCase {
     }
 
     @AfterMethod
-    public void tearDown() throws Exception{
+    public void tearDown() throws Exception {
         logger.info("关闭浏览器.");
 //        driver.quit();
     }
@@ -40,22 +40,23 @@ public class BaseTestCase {
         logger.info("==========测试结束==========");
     }
 
-    public static int getRandom(int min, int max){
-        return (int)(min + Math.random()*(Math.abs(max - min) + 1));
+    public static int getRandom(int min, int max) {
+        return (int) (min + Math.random() * (Math.abs(max - min) + 1));
     }
 
     /**
-     *  生成随机的百万金额
+     * 生成随机的百万金额
+     *
      * @param minAmount 最小金额，单位：百万
      * @param maxAmount 最大金额，单位：百万
      * @return
      */
-    public static String randomMillAmount(int minAmount, int maxAmount){
-        return String.valueOf(getRandom(minAmount*100, maxAmount*100)*10000);
+    public static String randomMillAmount(int minAmount, int maxAmount) {
+        return String.valueOf(getRandom(minAmount * 100, maxAmount * 100) * 10000);
     }
 
-    public static String randomAmount(int minAmount, int maxAmount){
-        return String.valueOf(getRandom(minAmount, maxAmount)*10000);
+    public static String randomAmount(int minAmount, int maxAmount) {
+        return String.valueOf(getRandom(minAmount, maxAmount) * 10000);
     }
 
 }

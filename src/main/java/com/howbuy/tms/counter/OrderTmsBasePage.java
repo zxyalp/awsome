@@ -45,7 +45,7 @@ public class OrderTmsBasePage extends BasePage {
     @FindBy(css = ".layui-layer-btn0")
     protected WebElement okBtn;
 
-    public OrderTmsBasePage(WebDriver driver){
+    public OrderTmsBasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }

@@ -10,6 +10,7 @@ import java.io.IOException;
 
 /**
  * 测试context
+ *
  * @author yang.zhou
  * @date 2017/12/18
  */
@@ -25,14 +26,14 @@ public class TestContext {
 
     public static String CHROME_DRIVER_PATH = PropertyUtils.getProperty("chrome.driver.path");
 
-    private TestContext(){
+    private TestContext() {
 
     }
 
-    public static TestContext getInstance(){
-        if (testContext == null){
-            synchronized (TestContext.class){
-                if (testContext==null){
+    public static TestContext getInstance() {
+        if (testContext == null) {
+            synchronized (TestContext.class) {
+                if (testContext == null) {
                     testContext = new TestContext();
                 }
             }
@@ -51,7 +52,7 @@ public class TestContext {
         if (!imageDailyFile.exists()) {
             try {
                 FileUtils.forceMkdirParent(imageDailyFile);
-                logger.info("创建当前日期目录成功:"+dateFile);
+                logger.info("创建当前日期目录成功:" + dateFile);
             } catch (IOException e) {
                 logger.error("在创建当前日期的目录时失败.", e);
             }
@@ -61,7 +62,7 @@ public class TestContext {
 
         builder.append(fileName).append("_").append(nowTime).append(".").append(IMAGE_TYPE);
 
-        logger.info("截图的文件名称："+builder.toString());
+        logger.info("截图的文件名称：" + builder.toString());
 
         return new File(imageDailyFile, builder.toString());
     }
